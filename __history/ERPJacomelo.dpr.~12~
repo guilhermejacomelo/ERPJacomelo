@@ -1,0 +1,24 @@
+program ERPJacomelo;
+
+uses
+  Vcl.Forms,
+  Principal in 'src\views\Principal.pas' {ViewPrincipal},
+  Service.cadastro in 'src\services\Service.cadastro.pas' {ServiceCadastro: TDataModule},
+  Provider.constants in 'src\providers\Provider.constants.pas',
+  View.base in 'src\views\View.base.pas' {ViewBase},
+  Service.conexao in 'src\services\Service.conexao.pas' {ServiceConexao: TDataModule},
+  View.base.listaspas in 'src\views\View.base.listaspas.pas' {ViewBaseListas},
+  View.clientes in 'src\views\View.clientes.pas' {ViewClientes};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TViewPrincipal, ViewPrincipal);
+  Application.CreateForm(TServiceCadastro, ServiceCadastro);
+  Application.CreateForm(TServiceConexao, ServiceConexao);
+  Application.CreateForm(TViewBaseListas, ViewBaseListas);
+  Application.CreateForm(TViewClientes, ViewClientes);
+  Application.Run;
+end.
